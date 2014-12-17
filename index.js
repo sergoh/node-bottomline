@@ -27,8 +27,9 @@ for (sport in sports){
 			request(sports[sport].url, function (error, response, body){
 				if (error){
 					console.error('Bottomline Error:', error);
+					cb(error);
 				} else {
-					cb(sports[sport].parser(body));
+					cb(null, sports[sport].parser(body));
 				}
 			});
 		}
